@@ -25,12 +25,12 @@ def run_cycle(cyc, scale):
     ratio = oneprime/cycles
     return math.sqrt(6/ratio)
             
-cyc1 = 10**int(input("Cycles: 10^"))
-scale1 = 10**int(input("Range max 10^"))
+cyc1 = 10**int(input("Cycles: 1e+"))
+scale1 = 10**int(input("Range max 1e+"))
 print("--- calculating ---")
 start_time = time.time()
 calc_pi = run_cycle(cyc1, scale1)
-print(cyc1, " cycles in %s seconds" % (time.time() - start_time))
+print("{:.0e}".format(cyc1), " cycles in %s seconds" % round((time.time() - start_time), 4))
 print("Real pi: ", math.pi)
 print("Calc pi: ", calc_pi)
-print("Inaccuracy: ", ((math.pi - calc_pi)/math.pi)*100, "%")
+print("Inaccuracy: ", "{:.2e}".format(((math.pi - calc_pi)/math.pi)*100), "%")
